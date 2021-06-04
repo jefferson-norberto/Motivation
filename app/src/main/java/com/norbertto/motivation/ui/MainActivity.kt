@@ -1,9 +1,10 @@
- package com.norbertto.motivation
+ package com.norbertto.motivation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.norbertto.motivation.R
 
-class MainActivity : AppCompatActivity() {
+ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
