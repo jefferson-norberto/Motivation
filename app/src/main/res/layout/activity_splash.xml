@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity"
+    android:background="@color/colorPrimary"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewVamosComecar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:text="@string/vamos_comecar"/>
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColorHint="@color/white"
+        android:layout_centerVertical="true"
+        android:inputType="textAutoCorrect"
+        android:textColor="@color/white"
+        android:hint="@string/qual_o_seu_nome"
+        />
+
+    <Button
+        android:id="@+id/buttonSalve"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_marginBottom="16dp"
+        android:text="@string/salvar"/>
+</RelativeLayout>
