@@ -1,3 +1,8 @@
+/**
+ * Calsse usada para manipular o shared preference da minha aplicação
+ * com isso posso salvar os dados para usar em outras telas
+ * **/
+
 package com.norbertto.motivation.infra
 
 import android.content.Context
@@ -11,7 +16,10 @@ class SecurityPreferences(val context: Context) {
         mSharedPreferences.edit().putString(key, value).apply()
     }
 
-    fun getString(key: String){
-
+    fun getString(key: String): String{
+        //usando um operador elvis ?: não é preciso usar o else no retorno
+        //a função getString() do shared preference passa a chave, e caso essa chave
+        //não seja encontrata você define o que passar como no exemplo usamos uma string vazia ""
+        return mSharedPreferences.getString(key, "") ?: ""
     }
 }
