@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.Toast
 import com.norbertto.motivation.R
+import com.norbertto.motivation.infra.MotivationConstats
 import com.norbertto.motivation.infra.SecurityPreferences
 import kotlinx.android.synthetic.main.activity_splash.*
 
@@ -25,6 +26,7 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         buttonSalve.setOnClickListener(this)
+        verifyName()
 
     }
 
@@ -36,6 +38,14 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun verifyName(){
+        val name = mSecurityPreference.getString(MotivationConstats.KEY.PERSON_NAME)
+        if(name != ""){
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+    }
+
     private fun handleSave(){
         val name = editName.text.toString()
         if(name != ""){
@@ -43,6 +53,8 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
             mSecurityPreference.storeString("name", name)
             //iniciando uma nova tela
             startActivity(Intent(this, MainActivity::class.java))
+            //usado para fechar minha activity splash para não deixar rastros
+            finish()
         }else{
             val mensage = Toast.makeText(this, "Informe o seu nome!", Toast.LENGTH_LONG)
             mensage.setGravity(Gravity.CENTER, 0, 0)

@@ -19,7 +19,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
          //recuperando o nome do usuário pelo sharedPreferences
          mSecurityPreferences = SecurityPreferences(this)
-         textName.text = mSecurityPreferences.getString(MotivationConstats.KEY.PERSON_NAME)
+         val name = mSecurityPreferences.getString(MotivationConstats.KEY.PERSON_NAME)
+         textName.text = "Olá, ${name}"
 
          hideActionBar()
          imageAll.setColorFilter(resources.getColor(R.color.white))
