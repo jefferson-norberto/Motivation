@@ -58,6 +58,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_margin="16dp"
+        android:textAlignment="center"
         android:textSize="18sp"
         android:text="FRASE" />
 

@@ -6,10 +6,12 @@ import android.view.View
 import com.norbertto.motivation.R
 import com.norbertto.motivation.infra.MotivationConstats
 import com.norbertto.motivation.infra.SecurityPreferences
+import com.norbertto.motivation.repository.Mock
 import kotlinx.android.synthetic.main.activity_main.*
 
  class MainActivity : AppCompatActivity(), View.OnClickListener {
      private lateinit var mSecurityPreferences: SecurityPreferences
+     private var mPhraseFilter: Int = MotivationConstats.PHRASEFILTER.ALL
 
      override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
@@ -20,6 +22,8 @@ import kotlinx.android.synthetic.main.activity_main.*
          textName.text = mSecurityPreferences.getString(MotivationConstats.KEY.PERSON_NAME)
 
          hideActionBar()
+         imageAll.setColorFilter(resources.getColor(R.color.white))
+         handleNewPhrase()
 
          buttonNewPhrase.setOnClickListener(this)
          imageAll.setOnClickListener(this)
@@ -45,7 +49,8 @@ import kotlinx.android.synthetic.main.activity_main.*
      }
 
      private fun handleNewPhrase(){
-
+        val pharse = Mock().getPhrase(mPhraseFilter)
+         textPhrase.text = pharse
      }
 
      private fun handleFilter(id: Int){
@@ -56,12 +61,15 @@ import kotlinx.android.synthetic.main.activity_main.*
          when (id){
              R.id.imageAll ->{
                  imageAll.setColorFilter(resources.getColor(R.color.white))
+                 mPhraseFilter = MotivationConstats.PHRASEFILTER.ALL
              }
              R.id.imageHappy ->{
                  imageHappy.setColorFilter(resources.getColor(R.color.white))
+                 mPhraseFilter = MotivationConstats.PHRASEFILTER.HAPPY
              }
              R.id.imageMorning ->{
                 imageMorning.setColorFilter(resources.getColor(R.color.white))
+                 mPhraseFilter = MotivationConstats.PHRASEFILTER.MORNING
              }
          }
 
